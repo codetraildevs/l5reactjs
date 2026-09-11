@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -15,10 +15,15 @@ function Login() {
     });
   };
 
+  //init nav
+  const navigate=useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login submitted:', formData);
     alert(`Welcome back, ${formData.email}!`);
+    //navigate
+    navigate('/dashboard');
     
   };
 
